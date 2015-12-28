@@ -41,16 +41,6 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 	}
 }
 
-// func getTitle(w http.ResponseWriter, r *http.Request) (string, error) {
-// 	m := validPath.FindStringSubmatch(r.URL.Path)
-// 	fmt.Println(m)
-// 	if m == nil {
-// 		http.NotFound(w, r)
-// 		return "", errors.New("Invalid Page Title")
-// 	}
-// 	return m[2], nil // The title is the second subexpression.
-// }
-
 func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Here we will extract the page title from the Request,
